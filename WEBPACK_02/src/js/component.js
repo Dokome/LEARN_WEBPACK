@@ -6,13 +6,17 @@ require('../css/component.scss');
   引入css 否则css也不在关系图里面 但是需要专门配置 否则无法使用 需要对应的loader
 */
 
-const createElement = () => {
-  let div = document.createElement('div');
+const createElement = (name) => {
+  let div = document.createElement(name);
   div.style.width = 100 + 'px';
   div.style.height = 100 + 'px';
   div.style.backgroundColor = 'red';
   div.className = 'myDiv';
   div.innerHTML = 'hello world';
+  if (name === 'img') {
+    div.src =
+      require('../img/34b70b4101964d38d098384bb035f6d07ab5a5a5f281d2976.jpg').default;
+  }
   return div;
 };
 

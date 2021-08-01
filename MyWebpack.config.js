@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const path = require('path');
 // 当前学习的文件夹
 const MYStudyFilePath = 'WEBPACK_02';
@@ -32,6 +33,25 @@ module.exports = {
             // 注意css-loader只负责解析 插入还需要style-loader
             loader: 'css-loader',
             // options: 可选属性,值是一个对象或者字符串 值会被传入到loader之中
+            options: {
+              // importLoaders 选项允许你配置在 css-loader 之前有多少 loader 应用于 @imported 资源与 CSS 模块/ICSS 导入
+              importLoaders: 1, //下面还有postcss-loader故选1
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                // postCss依赖的插件
+                // require.resolve()括号内的为相对路径
+                plugins: [
+                  // require('autoprefixer'),
+                  // postcss-preset-env已经包含了autoprefixer的特性,所以用了后者可以不用前者
+                  // 接受字符串参数
+                  require('postcss-preset-env'),
+                ],
+              },
+            },
           },
         ],
       },
@@ -41,9 +61,49 @@ module.exports = {
           // 将 JS 字符串生成为 style 节点
           'style-loader',
           // 将 CSS 转化成 CommonJS 模块
-          'css-loader',
+          {
+            // 注意css-loader只负责解析 插入还需要style-loader
+            loader: 'css-loader',
+            // options: 可选属性,值是一个对象或者字符串 值会被传入到loader之中
+            options: {
+              // importLoaders 选项允许你配置在 css-loader 之前有多少 loader 应用于 @imported 资源与 CSS 模块/ICSS 导入
+              importLoaders: 2, //下面还有postcss-loader sass-loader故选2
+            },
+          },
+          // 由于在外面做了postcss的配置，此处可以直接调用字符
+          'postcss-loader',
           // 将 Sass 编译成 CSS
           'sass-loader',
+        ],
+      },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         // name: '[placeholder].png',
+      //         // 生成文件名, 默认是32位16进制名称
+      //         // 以下表示[原来的拓展名].[生成的哈希值截取6位].[原来的拓展名]
+      //         name: '[name].[hash:6].[ext]',
+      //         // outputpath 输出路径 此处为生成一个img文件夹 或者在上面的name改为
+      //         // name: 'img/[name].[hash:6].[ext]',
+      //         outputPath: 'img',
+      //       },
+      //     },
+      //   ],
+      // },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: 'img/[name].[hash:6].[ext]',
+              // 小于limit的以64位编码
+              limit: 100 * 1024,
+            },
+          },
         ],
       },
     ],

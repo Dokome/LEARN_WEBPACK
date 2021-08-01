@@ -11,11 +11,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
     "sass": "^1.37.0",
     "sass-loader": "^12.1.0",
     "scss-loader": "0.0.1",
     "style-loader": "^3.2.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.47.1"
   },
   "dependencies": {
