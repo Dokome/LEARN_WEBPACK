@@ -1,7 +1,8 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 // 当前学习的文件夹
-const MYStudyFilePath = 'WEBPACK_02';
+// const MYStudyFilePath = 'WEBPACK_02';
+const MYStudyFilePath = '';
 // 配置webpack的一些参数
 module.exports = {
   // 输入 此处可以使用相对路径
