@@ -8,7 +8,7 @@
 
 1. asset/resource 发送一个单独的文件并到处 URL 之前用 file-loader 实现
 2. asset/inline 导出一个资源的 data URI 之前通过 url-loader 实现
-3. asset/source 到处资源源代码 之前通过 raw-loader 实现
+3. asset/source 导出资源源代码 之前通过 raw-loader 实现
 4. asset 在导出一个 data URI 和发送一个单独的文件夹之间自动选择。之前通过 url-loader 并且配置资源的体积实现
    这样就不用像之前一样单独安装 file-loader 和 url-loader 了
 

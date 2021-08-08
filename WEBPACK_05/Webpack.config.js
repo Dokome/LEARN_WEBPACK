@@ -6,7 +6,7 @@ module.exports = {
   // 模式 不设置默认情况下为production
   mode: 'development',
   //当mode为development的时候devtool的默认值为eval
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   entry: path.resolve(__dirname, './src/main.js'),
   output: {
     filename: 'js/bundle.js',
