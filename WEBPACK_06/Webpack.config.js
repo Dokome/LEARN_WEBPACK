@@ -37,6 +37,8 @@ module.exports = {
       // 通过preset-env通过.browserslistrc中的浏览器参数进行预设
       {
         test: /\.js$/,
+        // 除了xxx以外
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
@@ -46,6 +48,10 @@ module.exports = {
             // },
           },
         ],
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
       },
     ],
   },

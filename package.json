@@ -5,7 +5,11 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config ./WEBPACK_06/Webpack.config.js"
+    "build": "webpack --config ./WEBPACK_10/config/webpack.prod.js",
+    "serve": "webpack serve --config ./WEBPACK_10/webpack.dev.js",
+    "build2": "webpack --config ./WEBPACK_12/config/webpack.common.js --env production",
+    "serve2": "webpack serve --config ./WEBPACK_12/config/webpack.common.js --env development",
+    "ts-check-watch": "tsc --noEmit --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,11 +18,18 @@
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@vue/compiler-sfc": "^3.1.5",
     "autoprefixer": "^10.3.1",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "postcss": "^8.3.6",
@@ -29,10 +40,20 @@
     "sass-loader": "^12.1.0",
     "scss-loader": "0.0.1",
     "style-loader": "^3.2.1",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
     "url-loader": "^4.1.1",
-    "webpack": "^5.47.1"
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.47.1",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "core-js": "^3.16.0",
+    "mini-css-extract-plugin": "^2.2.0",
+    "regenerator-runtime": "^0.13.9",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.8",
     "webpack-cli": "^4.7.2"
   }
 }
